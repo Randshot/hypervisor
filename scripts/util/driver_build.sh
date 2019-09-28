@@ -23,13 +23,19 @@
 # $1 == CMAKE_SOURCE_DIR
 # $2 == CMAKE_INSTALL_PREFIX
 
-msbuild_2017="/cygdrive/a/VS/2017/MSBuild/15.0/bin/msbuild.exe"
-msbuild_2019="/cygdrive/a/VS/2019/MSBuild/Current/bin/msbuild.exe"
+msbuild_2015="/cygdrive/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+msbuild_2017="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/bin/msbuild.exe"
+msbuild_2019="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/current/bin/msbuild.exe"
 
 find_msbuild() {
 
     if [[ -f $msbuild_2019 ]]; then
         msbuild=$msbuild_2019
+        return
+    fi
+
+    if [[ -f $msbuild_2017 ]]; then
+        msbuild=$msbuild_2017
         return
     fi
 
